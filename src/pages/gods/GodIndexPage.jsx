@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import axios from "axios";
 import GodsCard from "../../components/GodsCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function GodIndexPage() {
 
   const [gods, setGods] = useState([])
   const [errors, setError] = useState([])
   const { API_URL_GODS, API_STORAGE_URL, loading, setLoading } = useContext(GlobalContext)
+  const navigate = useNavigate();
 
   function fetchData() {
     setLoading(true);
@@ -19,6 +20,9 @@ export default function GodIndexPage() {
       .catch(err => {
         console.log(err.message);
         setError({ error: err.message });
+        if(err.response && err.response.status === 404) {
+          navigate("/not-found", { replace: true });
+        }
       })
       .finally(() => setLoading(false));
   }

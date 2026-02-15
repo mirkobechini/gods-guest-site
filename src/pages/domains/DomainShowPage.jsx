@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import GlobalContext from "../../context/GlobalContext";
 import GodsCard from "../../components/GodsCard";
 
@@ -10,6 +10,8 @@ export default function DomainShowPage() {
   const [domain, setDomain] = useState({});
   const [error, setError] = useState({});
   const { API_URL_DOMAINS, loading, setLoading } = useContext(GlobalContext);
+  
+  const navigate = useNavigate();
 
   function fetchData() {
     setLoading(true);
@@ -17,8 +19,11 @@ export default function DomainShowPage() {
       .then((res) => {
         setDomain(res.data.data);
       })
-      .catch((error) => {
-        setError(error);
+      .catch((err) => {
+        setError(err.message);
+        if(err.response && err.response.status === 404) {
+          navigate("/not-found", { replace: true });
+        }
       })
       .finally(() => setLoading(false));
   }

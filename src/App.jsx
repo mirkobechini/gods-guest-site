@@ -18,6 +18,7 @@ import PantheonShowPage from "./pages/pantheons/PantheonShowPage"
 // Domains
 import DomainIndexPage from "./pages/domains/DomainIndexPage"
 import DomainShowPage from "./pages/domains/DomainShowPage"
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
               <Route path="/pantheons/:id" element={<PantheonShowPage />} />
               <Route path="/domains" element={<DomainIndexPage />} />
               <Route path="/domains/:id" element={<DomainShowPage />} />
-              <Route path="*" element={<h1>404 Not Found</h1>} />
+              <Route path="*" element={<NotFoundPage />} />
 
             </Route>
           </Routes>

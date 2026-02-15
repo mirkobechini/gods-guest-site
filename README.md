@@ -35,26 +35,26 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] Header
 - [X] Loader
 - [] HomePage
-- [] 404
+- [/] 404
 - [/] Components (Card, List, etc)
 - [] CSS 
 
-#### Gods ⏳
+#### Gods ✅
 - [X] index
 - [X] show
-- [/] css
+- [X] css
 
-#### Domains ⏳
+#### Domains ✅
 - [X] index
 - [X] show
-- [/] css
+- [X] css
 
-#### Pantheons ⏳
+#### Pantheons ✅
 - [X] index
 - [X] show
-- [/] css
+- [X] css
 
-### Routes 🔄
+### Routes ✅
 - [X] /
 - [X] /gods
 - [X] /gods/:id
@@ -62,4 +62,4 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] /domains/:id
 - [X] /pantheons
 - [X] /pantheons/:id
-- [] * (not found)
+- [X] * (not found)

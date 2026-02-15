@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import GlobalContext from "../../context/GlobalContext"
 import axios from "axios"
 
@@ -9,6 +9,7 @@ export default function GodShowPage() {
   const { API_STORAGE_URL, API_URL_GODS, loading, setLoading } = useContext(GlobalContext)
 
   const [god, setGod] = useState({})
+  const navigate = useNavigate();
 
   function fetchData() {
     setLoading(true);
@@ -17,7 +18,9 @@ export default function GodShowPage() {
         setGod(res.data.data)
       })
       .catch(err => {
-        console.log(err.message);
+        if(err.response && err.response.status === 404) {
+          navigate("/not-found", { replace: true });
+        }
       })
       .finally(() => setLoading(false));
   }

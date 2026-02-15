@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { redirect, useNavigate, useParams } from "react-router-dom"
 import GlobalContext from "../../context/GlobalContext"
 import axios from "axios"
 import GodsCard from "../../components/GodsCard"
@@ -11,6 +11,8 @@ export default function PantheonShowPage() {
   const [errors, setError] = useState([])
   const { API_URL_PANTHEONS, API_STORAGE_URL, loading, setLoading } = useContext(GlobalContext)
 
+  const navigate = useNavigate();
+
   function fetchData() {
     setLoading(true);
     axios.get(`${API_URL_PANTHEONS}/${id}`)
@@ -20,6 +22,9 @@ export default function PantheonShowPage() {
       .catch(err => {
         console.log(err.message);
         setError({ error: err.message });
+        if(err.response && err.response.status === 404) {
+          navigate("/not-found", { replace: true });
+        }
       })
       .finally(() => setLoading(false));
   }
