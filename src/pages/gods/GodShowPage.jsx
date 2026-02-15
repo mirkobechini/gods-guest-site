@@ -48,7 +48,7 @@ export default function GodShowPage() {
             </div>
             <div className="row mt-2 ms-2">
               <span className="d-block"><strong>Pantheon: </strong>
-              <Link className="text-decoration-none text-dark zoom-hover-text zoom-hover" to={`/pantheons/${god.pantheon?.id}`}>{god.pantheon?.name}</Link></span>
+              <Link className="text-decoration-none text-body zoom-hover-text zoom-hover" to={`/pantheons/${god.pantheon?.id}`}>{god.pantheon?.name}</Link></span>
               <span className="d-block"><strong>Rango:</strong> {god.rank}</span>
               <span className="d-block"><strong>Domini: </strong>
                 {god.domains?.map((domain) => (

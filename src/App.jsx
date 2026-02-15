@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import GlobalContext from "./context/GlobalContext";
@@ -22,9 +22,25 @@ import DomainShowPage from "./pages/domains/DomainShowPage"
 function App() {
 
   const [loading, setLoading] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-bs-theme", theme);
+  }, [theme])
+
+  function toggleTheme() {
+    setTheme(prev=> {
+      const newTheme = prev === "light" ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      return newTheme;
+    });
+  }
+
   return (
     <>
-      <GlobalContext.Provider value={{ API_STORAGE_URL: import.meta.env.VITE_API_STORAGE_URL, API_URL_GODS: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS, loading, setLoading }}>
+      <GlobalContext.Provider value={{ API_STORAGE_URL: import.meta.env.VITE_API_STORAGE_URL, API_URL_GODS: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS,
+                                      loading, setLoading,
+                                      theme, toggleTheme }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>
