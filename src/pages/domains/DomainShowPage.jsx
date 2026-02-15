@@ -10,7 +10,7 @@ export default function DomainShowPage() {
   const [domain, setDomain] = useState({});
   const [error, setError] = useState({});
   const { API_URL_DOMAINS, loading, setLoading } = useContext(GlobalContext);
-  
+
   const navigate = useNavigate();
 
   function fetchData() {
@@ -22,7 +22,7 @@ export default function DomainShowPage() {
       .catch((err) => {
         setError(err.message);
         if(err.response && err.response.status === 404) {
-          navigate("/not-found", { replace: true });
+          navigate("/domains", { replace: true });
         }
       })
       .finally(() => setLoading(false));

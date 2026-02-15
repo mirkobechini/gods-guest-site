@@ -21,7 +21,7 @@ export default function GodIndexPage() {
         console.log(err.message);
         setError({ error: err.message });
         if(err.response && err.response.status === 404) {
-          navigate("/not-found", { replace: true });
+          navigate("/gods", { replace: true });
         }
       })
       .finally(() => setLoading(false));

@@ -19,7 +19,7 @@ export default function GodShowPage() {
       })
       .catch(err => {
         if(err.response && err.response.status === 404) {
-          navigate("/not-found", { replace: true });
+          navigate("/gods", { replace: true });
         }
       })
       .finally(() => setLoading(false));

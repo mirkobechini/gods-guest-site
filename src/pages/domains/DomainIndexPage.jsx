@@ -21,7 +21,7 @@ export default function DomainIndexPage() {
         console.log(err.message);
         setError({ error: err.message });
         if(err.response && err.response.status === 404) {
-          navigate("/not-found", { replace: true });
+          navigate("/domains", { replace: true });
         }
       })
       .finally(() => setLoading(false));
