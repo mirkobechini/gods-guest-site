@@ -6,11 +6,12 @@ import axios from "axios"
 export default function GodShowPage() {
 
   const { id } = useParams()
-  const { API_STORAGE_URL, API_URL_GODS } = useContext(GlobalContext)
+  const { API_STORAGE_URL, API_URL_GODS, loading, setLoading } = useContext(GlobalContext)
 
   const [god, setGod] = useState({})
 
   function fetchData() {
+    setLoading(true);
     axios.get(`${API_URL_GODS}/${id}`)
       .then(res => {
         setGod(res.data.data)
@@ -18,13 +19,14 @@ export default function GodShowPage() {
       .catch(err => {
         console.log(err.message);
       })
+      .finally(() => setLoading(false));
   }
 
   useEffect(fetchData, [id])
 
   return (
     <div>
-      <h1>God Details</h1>
+      {!loading && <h1>God Details</h1>}
       <div className="container py-4">
         <Link to="/gods" className="btn btn-secondary mb-3" aria-label="Vai alla lista degli dei">Torna alla lista degli dei</Link>
 

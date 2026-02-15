@@ -21,13 +21,13 @@ import DomainShowPage from "./pages/domains/DomainShowPage"
 
 function App() {
 
-
+  const [loading, setLoading] = useState(false);
   return (
     <>
-      <GlobalContext.Provider value={{API_STORAGE_URL: import.meta.env.VITE_API_STORAGE_URL, API_URL_GODS: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS}}>
+      <GlobalContext.Provider value={{ API_STORAGE_URL: import.meta.env.VITE_API_STORAGE_URL, API_URL_GODS: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS, loading, setLoading }}>
         <BrowserRouter>
           <Routes>
-            <Route element={<DefaultLayout/>}>
+            <Route element={<DefaultLayout />}>
               <Route index element={<HomePage />} />
               <Route path="/gods" element={<GodIndexPage />} />
               <Route path="/gods/:id" element={<GodShowPage />} />
@@ -35,6 +35,8 @@ function App() {
               <Route path="/pantheons/:id" element={<PantheonShowPage />} />
               <Route path="/domains" element={<DomainIndexPage />} />
               <Route path="/domains/:id" element={<DomainShowPage />} />
+              <Route path="*" element={<h1>404 Not Found</h1>} />
+
             </Route>
           </Routes>
         </BrowserRouter>

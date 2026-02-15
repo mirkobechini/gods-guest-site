@@ -9,9 +9,10 @@ export default function PantheonShowPage() {
   const { id } = useParams()
   const [pantheon, setPantheon] = useState(null)
   const [errors, setError] = useState([])
-  const { API_URL_PANTHEONS, API_STORAGE_URL } = useContext(GlobalContext)
+  const { API_URL_PANTHEONS, API_STORAGE_URL, loading, setLoading } = useContext(GlobalContext)
 
   function fetchData() {
+    setLoading(true);
     axios.get(`${API_URL_PANTHEONS}/${id}`)
       .then(res => {
         setPantheon(res.data.data)
@@ -20,12 +21,13 @@ export default function PantheonShowPage() {
         console.log(err.message);
         setError({ error: err.message });
       })
+      .finally(() => setLoading(false));
   }
 
   useEffect(fetchData, [id])
   return (
     <div>
-      <h1>Pantheon Details</h1>
+      {!loading && <h1>Pantheon Details</h1>}
       <div className="container py-4">
         <div className="row">
           <div className="col">

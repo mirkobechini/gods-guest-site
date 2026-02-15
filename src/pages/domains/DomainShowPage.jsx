@@ -9,20 +9,23 @@ export default function DomainShowPage() {
   const { id } = useParams();
   const [domain, setDomain] = useState({});
   const [error, setError] = useState({});
-
-  const { API_URL_DOMAINS } = useContext(GlobalContext);
+  const { API_URL_DOMAINS, loading, setLoading } = useContext(GlobalContext);
 
   function fetchData() {
+    setLoading(true);
     axios.get(`${API_URL_DOMAINS}/${id}`)
       .then((res) => {
         setDomain(res.data.data);
       })
       .catch((error) => {
         setError(error);
-      });
+      })
+      .finally(() => setLoading(false));
   }
 
   useEffect(fetchData, [id]);
+
+  if (loading) return null;
 
   return (
     <div>
@@ -57,7 +60,6 @@ export default function DomainShowPage() {
             ))}
           </div>
         )}
-
       </div>
     </div>
   )

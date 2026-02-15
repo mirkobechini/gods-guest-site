@@ -8,9 +8,10 @@ export default function PantheonIndexPage() {
   const [pantheons, setPantheons] = useState([])
   const [hoveredPantheonId, setHoveredPantheonId] = useState(null)
   const [errors, setError] = useState([])
-  const { API_URL_PANTHEONS, API_STORAGE_URL } = useContext(GlobalContext)
+  const { API_URL_PANTHEONS, API_STORAGE_URL, loading, setLoading } = useContext(GlobalContext)
 
   function fetchData() {
+    setLoading(true);
     axios.get(`${API_URL_PANTHEONS}`)
       .then(res => {
         setPantheons(res.data.data)
@@ -19,13 +20,14 @@ export default function PantheonIndexPage() {
         console.log(err.message);
         setError({ error: err.message });
       })
+      .finally(() => setLoading(false));
   }
 
   useEffect(fetchData, [])
 
   return (
     <div>
-      <h1>Pantheons</h1>
+      {!loading && <h1>Pantheons</h1>}
       <div className="container my-4">
 
         <div className="row row-cols-auto g-3">

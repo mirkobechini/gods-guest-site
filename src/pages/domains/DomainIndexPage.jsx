@@ -7,9 +7,10 @@ export default function DomainIndexPage() {
 
   const [domains, setDomains] = useState([])
   const [errors, setError] = useState([])
-  const { API_URL_DOMAINS } = useContext(GlobalContext)
+  const { API_URL_DOMAINS, loading, setLoading } = useContext(GlobalContext)
 
   function fetchData() {
+    setLoading(true);
     axios.get(`${API_URL_DOMAINS}`)
       .then(res => {
         setDomains(res.data.data)
@@ -18,13 +19,14 @@ export default function DomainIndexPage() {
         console.log(err.message);
         setError({ error: err.message });
       })
+      .finally(() => setLoading(false));
   }
 
   useEffect(fetchData, [])
 
   return (
     <div>
-      <h1>Domains</h1>
+      {!loading && <h1>Domains</h1>}
       <div className="container my-4">
 
         <div className="row row-cols-auto g-3">

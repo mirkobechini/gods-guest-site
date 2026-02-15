@@ -8,9 +8,10 @@ export default function GodIndexPage() {
 
   const [gods, setGods] = useState([])
   const [errors, setError] = useState([])
-  const { API_URL_GODS, API_STORAGE_URL } = useContext(GlobalContext)
+  const { API_URL_GODS, API_STORAGE_URL, loading, setLoading } = useContext(GlobalContext)
 
   function fetchData() {
+    setLoading(true);
     axios.get(`${API_URL_GODS}`)
       .then(res => {
         setGods(res.data.data)
@@ -19,6 +20,7 @@ export default function GodIndexPage() {
         console.log(err.message);
         setError({ error: err.message });
       })
+      .finally(() => setLoading(false));
   }
 
   useEffect(fetchData, [])
@@ -35,7 +37,7 @@ export default function GodIndexPage() {
 
   return (
     <div>
-      <h1>Gods</h1>
+      {!loading && <h1>Gods</h1>}
       <div className="container my-4">
         {
           // groupedGods ->"chiave": pantheon, "valore": array di dei
