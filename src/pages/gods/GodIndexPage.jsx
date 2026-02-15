@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 export default function GodIndexPage() {
 
   const [gods, setGods] = useState([])
-  const [currentPantheon, setCurrentPantheon] = useState([])
   const [errors, setError] = useState([])
   const { API_URL_GODS } = useContext(GlobalContext)
 
@@ -15,7 +14,6 @@ export default function GodIndexPage() {
     axios.get(`${API_URL_GODS}`)
       .then(res => {
         setGods(res.data.data)
-        setCurrentPantheon(res.data.data[0].pantheon)
       })
       .catch(err => {
         console.log(err.message);
