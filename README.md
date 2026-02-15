@@ -47,8 +47,8 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] show
 - [/] css
 
-#### Domains ⬜
-- [] index
+#### Domains 🔄
+- [X] index
 - [] show
 - [] css
 
