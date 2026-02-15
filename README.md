@@ -17,7 +17,7 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - Bootstrap
 - Bootstrap Icons
 - Font Awesome (npm i @fortawesome/fontawesome-free)
-- Loader (npm i ldrs)
+- Loader (npm i styled-components)
  
 ## Todos:
 
@@ -33,8 +33,7 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] GlobalContext
 - [X] DefaultLayout
 - [X] Header
-- [] Footer
-- [] Loader
+- [X] Loader
 - [] HomePage
 - [] NotFound
 - [] 404
@@ -52,7 +51,7 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] show
 - [/] css
 
-#### Pantheons 🔄
+#### Pantheons ⏳
 - [X] index
 - [X] show
 - [/] css
@@ -66,4 +65,3 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] /pantheons
 - [X] /pantheons/:id
 - [] * (not found)
-- [] 404

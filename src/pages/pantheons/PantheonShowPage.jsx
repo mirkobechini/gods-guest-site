@@ -25,9 +25,11 @@ export default function PantheonShowPage() {
   }
 
   useEffect(fetchData, [id])
+
+  if (loading) return null;
   return (
     <div>
-      {!loading && <h1>Pantheon Details</h1>}
+      <h1>Dettagli Pantheon</h1>
       <div className="container py-4">
         <div className="row">
           <div className="col">

@@ -24,9 +24,10 @@ export default function GodShowPage() {
 
   useEffect(fetchData, [id])
 
+  if (loading) return null;
   return (
     <div>
-      {!loading && <h1>God Details</h1>}
+      <h1>Dettagli dio</h1>
       <div className="container py-4">
         <Link to="/gods" className="btn btn-secondary mb-3" aria-label="Vai alla lista degli dei">Torna alla lista degli dei</Link>
 

@@ -29,7 +29,7 @@ export default function DomainShowPage() {
 
   return (
     <div>
-      <h1>Domain Details</h1>
+      <h1>Dettagli Dominio</h1>
       <div className="container py-4">
         <div className="row">
           <div className="col">
