@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import GlobalContext from "./context/GlobalContext";
 import DefaultLayout from "./layouts/DefaultLayout";
@@ -12,12 +12,12 @@ import GodIndexPage from "./pages/gods/GodIndexPage"
 import GodShowPage from "./pages/gods/GodShowPage"
 
 // Pantheons
-import PantheonIndexPage from "./pages/gods/PantheonIndexPage"
-import PantheonShowPage from "./pages/gods/PantheonShowPage"
+import PantheonIndexPage from "./pages/pantheons/PantheonIndexPage"
+import PantheonShowPage from "./pages/pantheons/PantheonShowPage"
 
 // Domains
-import DomainIndexPage from "./pages/gods/DomainIndexPage"
-import DomainShowPage from "./pages/gods/DomainShowPage"
+import DomainIndexPage from "./pages/domains/DomainIndexPage"
+import DomainShowPage from "./pages/domains/DomainShowPage"
 
 function App() {
 
