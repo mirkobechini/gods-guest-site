@@ -35,7 +35,7 @@ export default function GodShowPage() {
           <div className="card-header d-flex align-items-center justify-content-between">
             <h1>{god.name} - {god.title}</h1>
           </div>
-          <div className="card-body">
+          <div className="card-body bg-pantheon" style={{ "--pantheon-bg": `url(${API_STORAGE_URL}/${god.pantheon?.image})` }}>
             <div className="row">
               <div className="col-3">
                 <div className="card-img-top">

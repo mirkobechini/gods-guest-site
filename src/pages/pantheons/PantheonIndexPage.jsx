@@ -38,7 +38,7 @@ export default function PantheonIndexPage() {
               <Link to={`/pantheons/${pantheon.id}`} className="col" key={pantheon.id}>
                 <div className="card position-relative" style={{ width: "18rem" }}>
                   <div className="card-img-top  zoom-hover-pantheon" onMouseEnter={() => setHoveredPantheonId(pantheon.id)} onMouseLeave={() => setHoveredPantheonId(null)}>
-                    <img className="zoom-hover" src={`${API_STORAGE_URL}/${pantheon.image}`} alt={pantheon.name} style={{ width: '100%' }} />
+                    <img className="zoom-hover" src={`${API_STORAGE_URL}/${pantheon.image}`} alt={pantheon.name} style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', objectPosition: 'center' }} />
                   </div>
                 </div>
                 {
@@ -50,7 +50,7 @@ export default function PantheonIndexPage() {
                         {
                           pantheon.gods?.map((god) => (
                             <div className="col-4" key={god.id}>
-                              <img src={`${API_STORAGE_URL}/${god.image}`} alt={god.name} className="img-fluid rounded-circle" />
+                              <img src={`${API_STORAGE_URL}/${god.image}`} alt={god.name} className="img-fluid rounded-circle" style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', objectPosition: 'center' }} />
                             </div>
                           ))
                         }
