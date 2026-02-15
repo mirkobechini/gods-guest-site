@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <GlobalContext.Provider value={{API_URL: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS}}>
+      <GlobalContext.Provider value={{API_STORAGE_URL: import.meta.env.VITE_API_STORAGE_URL, API_URL_GODS: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS}}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout/>}>
