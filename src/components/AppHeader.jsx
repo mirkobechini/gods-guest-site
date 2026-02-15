@@ -18,11 +18,11 @@ export default function AppHeader() {
                                 <NavLink className="nav-link" to="/gods">Gods</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/domains">Domains</NavLink>
-                            </li>
-                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/pantheons">Pantheons</NavLink>
                             </li>   
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="/domains">Domains</NavLink>
+                            </li>
                         </ul>
                     </div>
                 </div>

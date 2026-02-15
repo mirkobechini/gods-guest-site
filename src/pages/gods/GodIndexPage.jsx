@@ -40,8 +40,8 @@ export default function GodIndexPage() {
         {
           // groupedGods ->"chiave": pantheon, "valore": array di dei
           Object.entries(groupedGods).map(([pantheon, gods]) => (
-            <div key={pantheon}className="mb-2 card p-3 border-0 shadow-sm rounded bg-primary-subtle bg-pantheon" style={{ "--pantheon-bg": `url(${API_STORAGE_URL}/${gods[0].pantheon?.image})` }}>
-              <Link className="h2 text-decoration-none text-dark" to={`/pantheons/${gods[0].pantheon?.id}`}>{pantheon}</Link>
+            <div key={pantheon} className="mb-2 card p-3 border-0 shadow-sm rounded bg-primary-subtle bg-pantheon" style={{ "--pantheon-bg": `url(${API_STORAGE_URL}/${gods[0].pantheon?.image})` }}>
+              <Link className="h2 text-decoration-none text-dark zoom-hover-text" to={`/pantheons/${gods[0].pantheon?.id}`}>{pantheon}</Link>
               <div className="row row-cols-1 row-cols-md-4 row-cols-lg-6 g-3">
                 {
                   gods.map((god) => (
