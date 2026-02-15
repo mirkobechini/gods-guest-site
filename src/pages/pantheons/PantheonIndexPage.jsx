@@ -25,22 +25,20 @@ export default function PantheonIndexPage() {
 
   useEffect(fetchData, [])
 
+  if (loading) return null;
+
   return (
     <div>
-      {!loading && <h1>Pantheons</h1>}
+      <h1>Pantheons</h1>
       <div className="container my-4">
 
         <div className="row row-cols-auto g-3">
           {
             pantheons.map((pantheon) => (
               <Link to={`/pantheons/${pantheon.id}`} className="col" key={pantheon.id}>
-                <div className="card  position-relative" style={{ width: "18rem" }}>
-                  <div
-                    className="card-img-top zoom-hover zoom-hover-pantheon"
-                    onMouseEnter={() => setHoveredPantheonId(pantheon.id)}
-                    onMouseLeave={() => setHoveredPantheonId(null)}
-                  >
-                    <img src={`${API_STORAGE_URL}/${pantheon.image}`} alt={pantheon.name} style={{ width: '100%' }} />
+                <div className="card position-relative" style={{ width: "18rem" }}>
+                  <div className="card-img-top  zoom-hover-pantheon" onMouseEnter={() => setHoveredPantheonId(pantheon.id)} onMouseLeave={() => setHoveredPantheonId(null)}>
+                    <img className="zoom-hover" src={`${API_STORAGE_URL}/${pantheon.image}`} alt={pantheon.name} style={{ width: '100%' }} />
                   </div>
                 </div>
                 {

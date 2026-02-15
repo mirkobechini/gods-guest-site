@@ -13,8 +13,8 @@ export default function GodsCard({ god }) {
                 <div className="card h-100" style={{ width: "100%", maxHeight: "100%" }}>
                     <Link className="text-decoration-none text-body" to={`/gods/${god.id}`}>
 
-                        <div className="card-img-top zoom-hover" style={{ aspectRatio: "1 / 1", overflow: "hidden" }}>
-                            <img className="img-fluid" src={`${API_STORAGE_URL}/${god.image}`} alt={god.name}
+                        <div className="card-img-top" style={{ aspectRatio: "1 / 1", overflow: "hidden" }}>
+                            <img className="img-fluid  zoom-hover" src={`${API_STORAGE_URL}/${god.image}`} alt={god.name}
                                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                             />
                         </div>

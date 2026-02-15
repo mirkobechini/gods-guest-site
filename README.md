@@ -35,10 +35,8 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] Header
 - [X] Loader
 - [] HomePage
-- [] NotFound
 - [] 404
 - [/] Components (Card, List, etc)
-- [] Middleware (fetchData, handleError, etc)
 - [] CSS 
 
 #### Gods ⏳
