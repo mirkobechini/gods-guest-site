@@ -2,6 +2,7 @@
 @import url('bootstrap-icons');
 @import url('@fortawesome/fontawesome-free/css/all.css');
 
+/*Gods index*/
 .bg-pantheon{
     position: relative;
     overflow: hidden;
@@ -24,6 +25,7 @@
     z-index: 1;
 }
 
+/*Commons*/
 .zoom-hover, .zoom-hover-text{
     transition: transform 0.2s ease-in-out;
 }
@@ -40,3 +42,5 @@
     display: inline-block;
     transform-origin: left center;
 }
+
+/*Pantheon*/
