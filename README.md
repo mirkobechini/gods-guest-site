@@ -42,9 +42,9 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [] Middleware (fetchData, handleError, etc)
 - [] CSS 
 
-#### Gods 🔄
+#### Gods ⏳
 - [X] index
-- [] show
+- [X] show
 - [/] css
 
 #### Domains ⬜
