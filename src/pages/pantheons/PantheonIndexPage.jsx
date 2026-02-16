@@ -39,15 +39,15 @@ export default function PantheonIndexPage() {
         <div className="row row-cols-auto g-3">
           {
             pantheons.map((pantheon) => (
-              <Link to={`/pantheons/${pantheon.id}`} className="col" key={pantheon.id}>
-                <div className="card position-relative" style={{ width: "18rem" }}>
+              <Link to={`/pantheons/${pantheon.id}`} className="col position-relative" key={pantheon.id}>
+                <div className="card" style={{ width: "18rem" }}>
                   <div className="card-img-top  zoom-hover-pantheon" onMouseEnter={() => setHoveredPantheonId(pantheon.id)} onMouseLeave={() => setHoveredPantheonId(null)}>
                     <img className="zoom-hover" src={`${API_STORAGE_URL}/${pantheon.image}`} alt={pantheon.name} style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', objectPosition: 'center' }} />
                   </div>
                 </div>
                 {
                   hoveredPantheonId === pantheon.id &&
-                  <div className="card mt-2 position-absolute" style={{ width: "30rem", zIndex: 1 }}>
+                  <div className="card mt-2 position-absolute start-0" style={{ width: "30rem", zIndex: 1 }}>
                     <div className="card-header">{pantheon.name}</div>
                     <div className="card-body">
                       <div className="row">
