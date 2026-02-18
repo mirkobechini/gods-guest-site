@@ -47,13 +47,13 @@ export default function PantheonShowPage() {
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-3">
+                  <div className="col-sm-12 col-md-3">
                     <div className="card-img-top ">
                       <img className="img-fluid" src={`${API_STORAGE_URL}/${pantheon?.image}`}
                         alt={pantheon?.name} />
                     </div>
                   </div>
-                  <div className="col-6 mt-4">
+                  <div className="col-sm-12 col-md-6 mt-4">
                     <p>{pantheon?.description}</p>
                   </div>
                   <div className="row mt-2 ms-2">

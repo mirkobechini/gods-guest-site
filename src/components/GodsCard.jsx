@@ -8,7 +8,7 @@ export default function GodsCard({ god }) {
 
     return (
         <>
-            <div className="col">
+            <div className="col-sm-12 col-md-6 col-lg-3">
 
                 <div className="card h-100" style={{ width: "100%", maxHeight: "100%" }}>
                     <Link className="text-decoration-none text-body" to={`/gods/${god.id}`}>

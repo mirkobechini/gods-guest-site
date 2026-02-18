@@ -40,17 +40,17 @@ export default function GodShowPage() {
           </div>
           <div className="card-body bg-pantheon" style={{ "--pantheon-bg": `url(${API_STORAGE_URL}/${god.pantheon?.image})` }}>
             <div className="row">
-              <div className="col-3">
+              <div className="col-sm-12 col-md-3">
                 <div className="card-img-top">
                   <img className="img-fluid" src={`${API_STORAGE_URL}/${god.image}`} alt={god.name} />
                 </div>
               </div>
-              <div className="col-6 mt-4">
+              <div className="col-sm-12 col-md-6 mt-4">
                 <p className="m-0">{god.description}</p>
               </div>
 
             </div>
-            <div className="row mt-2 ms-2">
+            <div className="row mt-2 ms-md-2">
               <span className="d-block"><strong>Pantheon: </strong>
               <Link className="text-decoration-none text-body zoom-hover-text zoom-hover" to={`/pantheons/${god.pantheon?.id}`}>{god.pantheon?.name}</Link></span>
               <span className="d-block"><strong>Rango:</strong> {god.rank}</span>
