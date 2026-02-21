@@ -24,6 +24,7 @@ function App() {
 
   const [loading, setLoading] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [animation, setAnimation] = useState("on");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-bs-theme", theme);
@@ -37,11 +38,18 @@ function App() {
     });
   }
 
+  function toggleAnimation() {
+    animation === "on" ? setAnimation("off") : setAnimation("on");
+  }
+
+  
+
   return (
     <>
       <GlobalContext.Provider value={{ API_STORAGE_URL: import.meta.env.VITE_API_STORAGE_URL, API_URL_GODS: import.meta.env.VITE_API_URL_GODS, API_URL_PANTHEONS: import.meta.env.VITE_API_URL_PANTHEONS, API_URL_DOMAINS: import.meta.env.VITE_API_URL_DOMAINS,
                                       loading, setLoading,
-                                      theme, toggleTheme }}>
+                                      theme, toggleTheme,
+                                      animation, toggleAnimation }}>
         <BrowserRouter>
           <Routes>
             <Route element={<DefaultLayout />}>

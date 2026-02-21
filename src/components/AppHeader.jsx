@@ -5,7 +5,7 @@ import { useContext } from "react";
 export default function AppHeader() {
 
 
-    const { theme, toggleTheme } = useContext(GlobalContext);
+    const { theme, toggleTheme, animation, toggleAnimation } = useContext(GlobalContext);
 
     return (
         <header>
@@ -29,8 +29,9 @@ export default function AppHeader() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/domains">Domains</NavLink>
                             </li>
-                            <li className="nav-item position-absolute end-0">
+                            <li className="nav-item position-absolute end-0 d-flex align-items-center gap-2">
                                 <button className="nav-link btn btn-link border border-2 rounded-pill px-3" onClick={toggleTheme}>{theme === "light" ? <i className="bi bi-moon-stars-fill"></i> : <i className="bi bi-sun-fill"></i>}</button>
+                                <button className="nav-link btn btn-link border border-2 rounded-pill px-3" onClick={toggleAnimation}>{animation === "on" ? <i className="bi bi-pause-fill"></i> : <i className="bi bi-play-fill"></i>}</button>
                             </li>
                         </ul>
                     </div>
