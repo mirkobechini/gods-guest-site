@@ -14,7 +14,7 @@ export default function GodsCard({ god }) {
                     <Link className="text-decoration-none text-body" to={`/gods/${god.id}`}>
 
                         <div className="card-img-top" style={{ aspectRatio: "1 / 1", overflow: "hidden" }}>
-                            <img className="img-fluid  zoom-hover" src={`${API_STORAGE_URL}/${god.image}`} alt={god.name}
+                            <img className="img-fluid zoom-hover" src={`${API_STORAGE_URL}/${god.image}`} alt={god.name}
                                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                             />
                         </div>
