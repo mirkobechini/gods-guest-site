@@ -28,8 +28,8 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] install dependencies
 - [X] in index.css (@import url('bootstrap') e bootstrap-icons e fontawesome)
 
-### UI 🔄
-#### Commons 🔄
+### UI ✅
+#### Commons ✅
 - [X] GlobalContext
 - [X] DefaultLayout
 - [X] Header
@@ -37,7 +37,7 @@ All'interno di questo repository troverete il codice sorgente del frontend, svil
 - [X] HomePage
 - [X] 404
 - [X] Components (Card, List, etc)
-- [] CSS 
+- [X] CSS 
 
 #### Gods ✅
 - [X] index

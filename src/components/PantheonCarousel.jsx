@@ -3,21 +3,27 @@ import styled from 'styled-components';
 import GlobalContext from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 
-export default function PantheonCard({ gods }) {
-    const quantity = gods.length || 1;
+export default function PantheonCarousel({ pantheons }) {
+    const quantity = pantheons.length || 1;
     const { API_STORAGE_URL } = useContext(GlobalContext);
+
+    const [hoveredPantheonId, setHoveredPantheonId] = useState(null);
+    const hoveredPantheon = pantheons.find((pantheon) => pantheon.id === hoveredPantheonId);
 
     return (
         <StyledWrapper>
             <div className="slider" style={{ '--width': '250px', '--height': '250px', '--quantity': quantity }}>
                 <div className="list">
-                    {gods.map((god, index) => (
-                        <div className="item" style={{ '--position': index + 1 }} key={god.id}>
-                        <Link to={`/gods/${god.id}`} className="god-slide-link">
+                    {pantheons.map((pantheon, index) => (
+                        <div className="item" style={{ '--position': index + 1 }} key={pantheon.id}>
+                        <Link to={`/pantheons/${pantheon.id}`} className="pantheon-slide-link">
                                 <div
-                                    className="god-slide-card zoom-hover"
-                                    style={{ backgroundImage: `url(${API_STORAGE_URL}/${god.image})` }}
+                                    className="pantheon-slide-card zoom-hover"
+                                    style={{ backgroundImage: `url(${API_STORAGE_URL}/${pantheon.image})` }}
+                                    onMouseEnter={() => setHoveredPantheonId(pantheon.id)}
+                                    onMouseLeave={() => setHoveredPantheonId(null)}
                                 >
+                                    <p className="pantheon-slide-title">{pantheon.name}</p>
                                 </div>
                             </Link>
                         </div>
@@ -25,12 +31,32 @@ export default function PantheonCard({ gods }) {
                 </div>
             </div>
 
+            {hoveredPantheon && (
+                <div className="card p-0 mt-2 pantheon-preview" style={{ width: '30rem' }}>
+                    <div className="card-header">{hoveredPantheon.name}</div>
+                    <div className="card-body">
+                        <div className="row">
+                            {hoveredPantheon.gods?.map((god) => (
+                                <div className="col-4" key={god.id}>
+                                    <img
+                                        src={`${API_STORAGE_URL}/${god.image}`}
+                                        alt={god.name}
+                                        className="img-fluid rounded-circle"
+                                        style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', objectPosition: 'center' }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </StyledWrapper>
     );
 }
 
 const StyledWrapper = styled.div`
-  .god-slide-card {
+  .pantheon-slide-card {
     width: 100%;
     height: 100%;
     padding: 15px;
@@ -113,6 +139,21 @@ const StyledWrapper = styled.div`
     to {
       left: 100%;
     }
+  }
+
+  .pantheon-preview {
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+    background-image: none;
+  }
+
+  .pantheon-preview .card-header,
+  .pantheon-preview .card-body {
+    color: inherit;
+    background-color: transparent;
   }
 `;
 

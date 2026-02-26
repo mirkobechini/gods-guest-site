@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import axios from "axios";
 import GodsCard from "../../components/GodsCard";
-import GodCard from "../../components/GodCard";
+import GodCarousel from "../../components/GodCarousel";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function GodIndexPage() {
@@ -52,7 +52,7 @@ export default function GodIndexPage() {
               <div className="row row-cols-1 ">
                 {
                   animation === "on" ? (
-                    <GodCard gods={gods} />
+                    <GodCarousel gods={gods} />
                   ) : (
                   gods.map((god) => (
                     <GodsCard god={god} key={god.id} />

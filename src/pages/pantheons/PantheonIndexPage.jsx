@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import GlobalContext from "../../context/GlobalContext"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
-import PantheonCard from "../../components/PantheonCard"
+import PantheonCarousel from "../../components/PantheonCarousel"
 
 export default function PantheonIndexPage() {
 
@@ -39,7 +39,7 @@ export default function PantheonIndexPage() {
       <div className="container my-4">
         {
           animation === "on" ? (
-            <PantheonCard pantheons={pantheons} />
+            <PantheonCarousel pantheons={pantheons} />
           ) : (
             <div className="row row-cols-auto g-3">
               {
